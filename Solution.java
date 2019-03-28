@@ -9,9 +9,25 @@ import java.util.regex.*;
 public class Solution {
 
     // Complete the hurdleRace function below.
-    static int hurdleRace(int k, int[] height) {
 
-
+    /**
+     * Deterines how many magic potions Dan must drink to jump over all the hurdles
+     * @param jump the maximum height he can jump
+     * @param height an array of hurdle heights
+     * @return the number of magic potions he must drink
+     */
+    static int hurdleRace(int jump, int[] height) {
+        int maxHurdle = height[0];
+        // find the max height
+        for (int index = 1; index < height.length; index ++) {
+            if (height[index] > maxHurdle) {
+                maxHurdle = height[index];
+            }
+        }
+        if (maxHurdle > jump) {
+            return maxHurdle - jump;
+        }
+        return 0;
     }
 
     private static final Scanner scanner = new Scanner(System.in);
